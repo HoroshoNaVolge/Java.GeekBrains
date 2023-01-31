@@ -1,4 +1,4 @@
-public class Task2 implements ITask {
+public class Task1_2 implements ITask {
 
     public void Execute() {
         System.out.println("Задача 2.  Вывести все простые числа от 1 до 1000");

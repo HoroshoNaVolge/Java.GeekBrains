@@ -1,7 +1,7 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Task1 implements ITask{
+public class Task1_1 implements ITask{
     int number = 0;
     int sum = 0;
     int factorial = 1;

@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 public class program {
@@ -5,10 +6,11 @@ public class program {
     static ITask task;
     static boolean repeatProgram = true;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         while (repeatProgram) {
-            chooseTask();
+
+            chooseTask(chooseSeminar());
 
             try {
                 task.Execute();
@@ -18,28 +20,72 @@ public class program {
         }
     }
 
-    private static void chooseTask() {
-        System.out.println(
-                "\nВведите номер задачи: 1, 2 или 3.\nДля выхода из программы введите q");
+    private static int chooseSeminar() {
+        System.out.println("\nВведите номер семинара: 1 или 2");
         String inputStr = new Scanner(System.in).nextLine();
 
         switch (inputStr) {
             case "1":
-                task = new Task1();
-                break;
+                return 1;
             case "2":
-                task = new Task2();
-                break;
-            case "3":
-                task = new Task3();
-                break;
-            case "q":
-                task = null;
-                repeatProgram = false;
-                break;
+                return 2;
             default:
                 System.out.println("Некорректный ввод, попробуйте снова.");
-                chooseTask();
+                return chooseSeminar();
+        }
+    }
+
+    private static void chooseTask(int seminarNumber) throws IOException {
+
+        if (seminarNumber == 1) {
+            System.out.println(
+                    "\nСеминар 1.\nВведите номер задачи: 1, 2 или 3.\nДля выхода из программы введите q");
+            String inputStr = new Scanner(System.in).nextLine();
+
+            switch (inputStr) {
+                case "1":
+                    task = new Task1_1();
+                    break;
+                case "2":
+                    task = new Task1_2();
+                    break;
+                case "3":
+                    task = new Task1_3();
+                    break;
+                case "q":
+                    task = null;
+                    repeatProgram = false;
+                    break;
+                default:
+                    System.out.println("Некорректный ввод, попробуйте снова.");
+                    chooseTask(1);
+            }
+        }
+
+        else if (seminarNumber == 2) {
+            System.out.println(
+                    "\nСеминар 2.\nВведите номер задачи: 1, 2 или 4.\nДля выхода из программы введите q");
+            String inputStr = new Scanner(System.in).nextLine();
+
+            switch (inputStr) {
+                case "1":
+                    task = new Task2_1();
+                    break;
+                case "2":
+                    task = new Task2_2();
+                    break;
+                case "4":
+                    task = new Task1_3();
+                    System.out.println("\nВ калькулятор добавлен логгер.");
+                    break;
+                case "q":
+                    task = null;
+                    repeatProgram = false;
+                    break;
+                default:
+                    System.out.println("Некорректный ввод, попробуйте снова.");
+                    chooseTask(2);
+            }
         }
     }
 }

@@ -107,5 +107,22 @@ public class program {
                     break;
             }
         }
+
+        else if (seminarNumber==4){
+            System.out.println( "\nСеминар 4.\nВведите номер задачи: 1, 2, 3.\nДля выхода из программы введите q");
+        
+            String inputStr = new Scanner(System.in).nextLine();
+
+            switch (inputStr) {
+                case "1":
+                    task = new Task4_1();
+                    break;
+                case "2":
+                    task = new Task4_2();
+                    break;
+                case "3":
+                    task = new Task4_3();
+                    break;
+        }
     }
 }

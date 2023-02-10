@@ -21,7 +21,7 @@ public class program {
     }
 
     private static int chooseSeminar() {
-        System.out.println("\nВведите номер семинара: 4 (или старые: 1, 2, 3)");
+        System.out.println("\nВведите номер семинара: 5 (или старые: 1, 2, 3, 4)");
         String inputStr = new Scanner(System.in).nextLine();
 
         switch (inputStr) {
@@ -33,6 +33,8 @@ public class program {
                 return 3;
             case "4":
                 return 4;
+            case "5":
+                return 5;
             default:
                 System.out.println("Некорректный ввод, попробуйте снова.");
                 return chooseSeminar();
@@ -121,6 +123,24 @@ public class program {
                     break;
                 case "2":
                     task = new Task4_2();
+                    break;
+            }
+        }
+
+        else if (seminarNumber == 5) {
+            System.out.println("\nСеминар 5.\nВведите номер задачи: 1, 2 или 3.\nДля выхода из программы введите q");
+
+            String inputStr = new Scanner(System.in).nextLine();
+
+            switch (inputStr) {
+                case "1":
+                    task = new Task5_1();
+                    break;
+                case "2":
+                    task = new Task5_2();
+                    break;
+                case "3":
+                    task = new Task5_3();
                     break;
             }
         }
